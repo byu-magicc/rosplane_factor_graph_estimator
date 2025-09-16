@@ -16,7 +16,6 @@ class EstimatorContinuousDiscrete : public EstimatorEKF
 {
 public:
   EstimatorContinuousDiscrete();
-  EstimatorContinuousDiscrete(bool use_params);
 
 private:
   virtual void estimate(const Input & input, Output & output);

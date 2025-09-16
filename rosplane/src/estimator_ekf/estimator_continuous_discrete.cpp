@@ -61,29 +61,6 @@ EstimatorContinuousDiscrete::EstimatorContinuousDiscrete()
   N_ = params_.get_int("num_propagation_steps");
 }
 
-EstimatorContinuousDiscrete::EstimatorContinuousDiscrete(bool use_params)
-    : EstimatorContinuousDiscrete()
-{
-  double init_lat = params_.get_double("init_lat");
-  double init_long = params_.get_double("init_lon");
-  double init_alt = params_.get_double("init_alt");
-  double init_static = params_.get_double("baro_calibration_val");
-
-  RCLCPP_INFO_STREAM(this->get_logger(), "Using seeded estimator values.");
-  RCLCPP_INFO_STREAM(this->get_logger(), "Seeded initial latitude: " << init_lat);
-  RCLCPP_INFO_STREAM(this->get_logger(), "Seeded initial longitude: " << init_long);
-  RCLCPP_INFO_STREAM(this->get_logger(), "Seeded initial altitude: " << init_alt);
-  RCLCPP_INFO_STREAM(this->get_logger(), "Seeded barometer calibration value: " << init_static);
-
-  gps_init_ = true;
-  init_lat_ = init_lat;
-  init_lon_ = init_long;
-  init_alt_ = init_alt;
-
-  baro_init_ = true;
-  init_static_ = init_static;
-}
-
 void EstimatorContinuousDiscrete::initialize_state_covariances()
 {
   double pos_n_initial_cov = params_.get_double("pos_n_initial_cov");

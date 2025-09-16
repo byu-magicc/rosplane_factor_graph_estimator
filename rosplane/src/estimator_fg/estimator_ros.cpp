@@ -330,25 +330,8 @@ void EstimatorROS::saveParameter(std::string param_name, double param_val)
 
 int main(int argc, char ** argv)
 {
-
   rclcpp::init(argc, argv);
-
-  std::string use_params = "false";
-  if (argc >= 2) {
-    use_params = argv[1];
-  }
-
-  if (use_params == "true") {
-    rclcpp::spin(std::make_shared<rosplane::EstimatorFG>(true));
-  } else if (use_params == "false") {
-    rclcpp::spin(std::make_shared<rosplane::EstimatorFG>());
-  } else { // If the string is not true or false print error.
-    auto estimator_node = std::make_shared<rosplane::EstimatorFG>();
-    RCLCPP_WARN(estimator_node->get_logger(),
-                "Invalid option for seeding estimator, defaulting to unseeded.");
-    rclcpp::spin(estimator_node);
-  }
-
+  rclcpp::spin(std::make_shared<rosplane::EstimatorFG>());
   rclcpp::shutdown();
   return 0;
 }
