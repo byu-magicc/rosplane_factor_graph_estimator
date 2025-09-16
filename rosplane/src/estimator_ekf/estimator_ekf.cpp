@@ -3,8 +3,8 @@
 
 #include <rclcpp/logging.hpp>
 
-#include "estimator/estimator_ekf.hpp"
-#include "estimator/estimator_ros.hpp"
+#include "estimator_ekf/estimator_ekf.hpp"
+#include "estimator_ekf/estimator_ros.hpp"
 
 namespace rosplane
 {
