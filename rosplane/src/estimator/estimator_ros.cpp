@@ -3,8 +3,8 @@
 #include <filesystem>
 #include <fstream>
 
-#include "ekf/estimator_continuous_discrete.hpp"
-#include "ekf/estimator_ros.hpp"
+#include "estimator/estimator_continuous_discrete.hpp"
+#include "estimator/estimator_ros.hpp"
 
 namespace rosplane
 {

@@ -111,9 +111,9 @@ install(TARGETS
 
 # Estimator
 add_executable(estimator
-              src/ekf/estimator_ros.cpp
-              src/ekf/estimator_ekf.cpp
-              src/ekf/estimator_continuous_discrete.cpp)
+              src/estimator/estimator_ros.cpp
+              src/estimator/estimator_ekf.cpp
+              src/estimator/estimator_continuous_discrete.cpp)
 target_link_libraries(estimator
   ${YAML_CPP_LIBRARIES}
 )
