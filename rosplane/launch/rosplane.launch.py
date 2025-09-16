@@ -103,8 +103,8 @@ def generate_launch_description():
         ),
         Node(
             package='rosplane',
-            executable='estimator',
-            name='estimator',
+            executable='estimator_ekf',
+            name='estimator_ekf',
             output='screen',
             parameters=[
                 autopilot_params,

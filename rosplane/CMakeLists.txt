@@ -109,11 +109,11 @@ install(TARGETS
   path_planner
   DESTINATION lib/${PROJECT_NAME})
 
-# EKF
+# EKF estimator
 add_executable(estimator_ekf
-              src/estimator_ekf/estimator_ros.cpp
-              src/estimator_ekf/estimator_ekf.cpp
-              src/estimator_ekf/estimator_continuous_discrete.cpp)
+               src/estimator_ekf/estimator_ros.cpp
+               src/estimator_ekf/estimator_ekf.cpp
+               src/estimator_ekf/estimator_continuous_discrete.cpp)
 target_link_libraries(estimator_ekf
   ${YAML_CPP_LIBRARIES}
 )
@@ -121,6 +121,19 @@ ament_target_dependencies(estimator_ekf rosplane_msgs rosflight_msgs rclcpp Eige
 target_link_libraries(estimator_ekf param_manager)
 install(TARGETS
   estimator_ekf
+  DESTINATION lib/${PROJECT_NAME})
+
+# Factor graph estimator
+add_executable(estimator_fg
+               src/estimator_fg/estimator_ros.cpp
+               src/estimator_fg/estimator_fg.cpp)
+target_link_libraries(estimator_fg
+  ${YAML_CPP_LIBRARIES}
+)
+ament_target_dependencies(estimator_fg rosplane_msgs rosflight_msgs rclcpp Eigen3 ament_index_cpp)
+target_link_libraries(estimator_fg param_manager)
+install(TARGETS
+  estimator_fg
   DESTINATION lib/${PROJECT_NAME})
 
 #### END OF EXECUTABLES ###
