@@ -10,7 +10,6 @@ class EstimatorFG : public EstimatorROS
 {
 public:
   EstimatorFG();
-  EstimatorFG(bool use_params);
 
   virtual void estimate(const Input & input, Output & output);
 };

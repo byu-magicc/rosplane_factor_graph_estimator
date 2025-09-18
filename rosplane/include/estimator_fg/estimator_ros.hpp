@@ -56,8 +56,6 @@ protected:
     float gps_h;
     float gps_Vg;
     float gps_course;
-    bool status_armed;
-    bool armed_init;
   };
 
   struct Output

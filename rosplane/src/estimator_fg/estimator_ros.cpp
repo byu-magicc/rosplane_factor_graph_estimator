@@ -14,7 +14,7 @@ EstimatorROS::EstimatorROS()
     , params_(this)
     , params_initialized_(false)
 {
-  vehicle_state_pub_ = this->create_publisher<rosplane_msgs::msg::State>("estimated_state", 10);
+  vehicle_state_pub_ = this->create_publisher<rosplane_msgs::msg::State>("estimated_state_fg", 10);
 
   gnss_sub_ = this->create_subscription<rosflight_msgs::msg::GNSS>(
     gnss_topic_, 10, std::bind(&EstimatorROS::gnssCallback, this, std::placeholders::_1));
